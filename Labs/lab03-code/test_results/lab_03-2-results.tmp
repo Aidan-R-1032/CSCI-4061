@@ -1,0 +1,11 @@
+=====================================================================================================================================================================
+== Test 2: fork_wait
+== Runs the 'fork_wait' executable and passes it through the 'test_order_pids'
+== script to ensure that the PIDs have a consistent ordering. Checks that the
+== 'wait()'/'waitpid()' system call has been used to correctly cause parent
+== processes to wait for children which will lead to a well-defined, ordered
+== output shown below.
+Running test...
+Expected output is in file 'test_results/raw/lab_03-2-expected.tmp'
+Actual output is in file 'test_results/raw/lab_03-2-actual.tmp'
+Test PASSED

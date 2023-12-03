@@ -1,0 +1,4 @@
+Mon Feb 20 17:40:39 CST 2023
+out.txt
+par
+par.c

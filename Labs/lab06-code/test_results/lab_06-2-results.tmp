@@ -1,0 +1,9 @@
+=================================================================================================================================================================================
+== Test 2: Code - wc-signal
+== Tests wc_signal to see if it shuts down properly. Executes the program
+== multiple times. The first few runs do not use SIGINT, while the last several
+== runs send SIGINT to the program and check if it terminates gracefully.
+Running test...
+Expected output is in file 'test_results/raw/lab_06-2-expected.tmp'
+Actual output is in file 'test_results/raw/lab_06-2-actual.tmp'
+Test PASSED

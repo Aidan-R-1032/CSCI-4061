@@ -1,0 +1,5 @@
+$ ./redirect_child out1.tmp
+$ cat out1.tmp
+$ ./redirect_child out2.tmp
+$ cat out1.tmp
+$ exit

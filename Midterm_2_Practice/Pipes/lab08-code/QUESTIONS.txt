@@ -1,0 +1,99 @@
+                           __________________
+
+                            LAB 08 QUESTIONS
+                           __________________
+
+Lab Instructions
+================
+
+  Follow the instructions below to experiment with topics related to
+  this lab.
+  - For sections marked QUIZ, fill in an (X) for the appropriate
+    response in this file. Use the command `make test-quiz' to see if
+    all of your answers are correct.
+  - For sections marked CODE, complete the code indicated. Use the
+    command `make test-code' to check if your code is complete.
+  - DO NOT CHANGE any parts of this file except the QUIZ sections as it
+    may interfere with the tests otherwise.
+  - If your `QUESTIONS.txt' file seems corrupted, restore it by copying
+    over the `QUESTIONS.txt.bk' backup file.
+  - When you complete the exercises, check your answers with `make test'
+    and if all is well, create a zip file with `make zip' and upload it
+    to Gradescope. Ensure that the Autograder there reflects your local
+    results.
+  - IF YOU WORK IN A GROUP only one member needs to submit and then add
+    the names of their group.
+
+
+QUIZ Questions Shell Pipelines
+===================================
+
+  How many pipes are created in total to run the shell command
+  'cat numbers.txt | sort -n | tail -n 10 | wc -l'?
+  - ( ) 4
+  - (X) 3
+  - ( ) 1
+  - ( ) 0
+
+
+  How many calls to dup2() are needed to run the shell command
+  'cat numbers.txt | sort -n | tail -n 10 | wc -l'?
+  - (X) 6
+  - ( ) 4
+  - ( ) 3
+  - ( ) 0
+
+
+  Which of the following is not a valid shell command?
+  - ( ) cat numbers.txt | sort -n | tail -n 10 | wc -l
+  - ( ) cat < numbers.txt | sort -n | tail -n 10 | wc -l
+  - ( ) cat numbers.txt | sort -n | tail -n 10 | wc -l > out.txt
+  - ( ) cat < numbers.txt | sort -n | tail -n 10 | wc -l > out.txt
+  - (X) Trick question: all of the above are valid.
+
+
+  How many calls to dup2() are needed to run the shell command
+  'cat < numbers.txt | sort -n | tail -n 10 | wc -l > out.txt'
+  - ( ) Trick question: this is not a valid shell command
+  - ( ) 3
+  - ( ) 4
+  - (X) 8
+
+
+CODE Complete pipeline_commands.c
+=================================
+
+  Complete the code in 'pipeline_commands.c'. The goal of this code is to run
+  the equivalent of the shell command:
+
+    sort -n test_cases/resources/numbers.txt | tail -n 10
+
+  but in a C program using the appropriate system calls. Your code should take
+  the following steps:
+    1. Create a pipe for communication from 'sort' to 'tail'
+    2. Use fork() to create a child, which will be responsible for running
+       the 'tail' utility program.
+    3. Use dup2() so that the child process has standard input redirected to
+       the pipe.
+    4. Use exec() to run the 'tail' program with the necessary arguments.
+    5. In the original parent, use dup2() to redirect standard output to the
+       pipe.
+    6. In the parent, use exec() to run the 'sort' program with the necessary
+       arguments provided.
+
+  A correct run of the 'pipeline_commands' program looks like the following:
+  ,----
+  | > make                          # build pipeline_commands program
+  | gcc -Wall -Werror -g  -o pipeline_commands pipeline_commands.c
+  | > ./pipeline_commands
+  | 75
+  | 86
+  | 87
+  | 88
+  | 92
+  | 93
+  | 93
+  | 96
+  | 99
+  | 100
+  `----

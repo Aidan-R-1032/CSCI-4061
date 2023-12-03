@@ -1,0 +1,9 @@
+=====================================================================================================================================================================
+== Test 3: fork_exec
+== Runs the 'fork_exec' executable to check that the 'cat' command is
+== successfully executed in the child process and produces the expected output,
+== followed by correct output of the child's exit code from the parent process.
+Running test...
+Expected output is in file 'test_results/raw/lab_03-3-expected.tmp'
+Actual output is in file 'test_results/raw/lab_03-3-actual.tmp'
+Test PASSED

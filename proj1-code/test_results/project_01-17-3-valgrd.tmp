@@ -1,0 +1,15 @@
+==993== Memcheck, a memory error detector
+==993== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==993== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==993== Command: ./minitar -u -f test.tar f19.txt f8.bin f9.txt
+==993== Parent PID: 595
+==993== 
+==993== 
+==993== HEAP SUMMARY:
+==993==     in use at exit: 0 bytes in 0 blocks
+==993==   total heap usage: 9 allocs, 9 frees, 5,832 bytes allocated
+==993== 
+==993== All heap blocks were freed -- no leaks are possible
+==993== 
+==993== For lists of detected and suppressed errors, rerun with: -s
+==993== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

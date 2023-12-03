@@ -1,0 +1,7 @@
+======================================================================================================================================================================
+== Test 5: read_last_ints 2
+== Attempts to read the last int from the file 'numbers.bin'
+Running test...
+Expected output is in file 'test_results/raw/lab_02-5-expected.tmp'
+Actual output is in file 'test_results/raw/lab_02-5-actual.tmp'
+Test PASSED

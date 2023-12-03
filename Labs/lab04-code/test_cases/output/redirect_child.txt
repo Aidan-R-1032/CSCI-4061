@@ -1,0 +1,10 @@
+$ ./redirect_child out1.tmp
+Child complete, return code 0
+$ cat out1.tmp
+{{wc test_cases/resources/nums.txt}}
+$ ./redirect_child out2.tmp
+Child complete, return code 0
+$ cat out1.tmp
+{{wc test_cases/resources/nums.txt}}
+$ exit
+exit

@@ -1,0 +1,82 @@
+                           __________________
+
+                            LAB 09 QUESTIONS
+                           __________________
+
+Lab Instructions
+================
+
+  Follow the instructions below to experiment with topics related to
+  this lab.
+  - For sections marked QUIZ, fill in an (X) for the appropriate
+    response in this file. Use the command `make test-quiz' to see if
+    all of your answers are correct.
+  - For sections marked CODE, complete the code indicated. Use the
+    command `make test-code' to check if your code is complete.
+  - DO NOT CHANGE any parts of this file except the QUIZ sections as it
+    may interfere with the tests otherwise.
+  - If your `QUESTIONS.txt' file seems corrupted, restore it by copying
+    over the `QUESTIONS.txt.bk' backup file.
+  - When you complete the exercises, check your answers with `make test'
+    and if all is well, create a zip file with `make zip' and upload it
+    to Gradescope. Ensure that the Autograder there reflects your local
+    results.
+  - IF YOU WORK IN A GROUP only one member needs to submit and then add
+    the names of their group.
+
+
+QUIZ Questions poll() System Call
+=================================
+
+  Which event types are we interested in checking for if we want to know
+  when a pipe will have data available for reading?
+    - ( ) 'POLLIN', 'POLLOUT', and 'POLLERR'
+    - (X) 'POLLIN' Only
+    - ( ) 'POLLOUT' Only
+    - ( ) 'POLLIN' and 'POLLOUT'
+
+  What should be the third argument to 'poll()' if we want to
+  wait as long as necessary until at least one file descriptor
+  has a pending event?
+    - ( ) 0
+    - ( ) 1
+    - (X) -1
+    - ( ) 'INT_MAX'
+
+  What is a convenient way to instruct 'poll()' to ignore a particular
+  'struct pollfd' element in the array passed in as the first argument?
+    - (X) Negate the value of the struct's 'fd' field
+    - ( ) Set the struct's 'revents' field to 0
+    - ( ) Change the 'nfds' argument (the second argument) to 'poll()'
+    - ( ) Trick question: You need to remove the element from the array.
+
+
+CODE Complete poll_pipes.c
+===========================
+
+  Complete the code in 'poll_pipes.c'. This program forks a set of child
+  processes who each sleep for a random delay, then write an integer on a pipe.
+  The parent reads from each child's pipe and prints out the integer received.
+
+  Currently, results are output from each child in the order in which those
+  child processes were created. Your job is to change 'poll_pipes.c' to output
+  the results in the order in which they become available, i.e., the numbers
+  are printed out in the order in which they are written to their respective
+  pipes.
+
+  You should accomplish this using the 'poll()' system call to monitor all of
+  the relevant pipe file descriptors for incoming data.
+
+  A correct run of the 'poll_pipes' program looks like the following:
+  ,----
+  | > make                          # build poll_pipes program
+  | gcc -Wall -Werror -g  -o poll_pipes poll_pipes.c
+  | > ./poll_pipes
+  | Child 4 Result: 23
+  | Child 2 Result: 15
+  | Child 5 Result: 42
+  | Child 3 Result: 16
+  | Child 6 Result: 108
+  | Child 1 Result: 8
+  | Child 0 Result: 4
+  `----

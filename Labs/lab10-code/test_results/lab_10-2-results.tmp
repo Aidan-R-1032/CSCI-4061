@@ -1,0 +1,8 @@
+=====================================================================================================================================================================
+== Test 2: Code - udp_client
+== Tests the UDP client program by looking up various possible courses to check
+== if the proper resposnes are received from the server.
+Running test...
+Expected output is in file 'test_results/raw/lab_10-2-expected.tmp'
+Actual output is in file 'test_results/raw/lab_10-2-actual.tmp'
+Test PASSED

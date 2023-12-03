@@ -1,0 +1,7 @@
+======================================================================================================================================================================
+== Test 3: copy_file With Binary File
+== Attempts to copy a binary file with the 'copy_file' program
+Running test...
+Expected output is in file 'test_results/raw/lab_02-3-expected.tmp'
+Actual output is in file 'test_results/raw/lab_02-3-actual.tmp'
+Test PASSED
